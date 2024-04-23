@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App bg-gray-600">
       <Editor markdownText={markdownText} handleChange={handleChange} />
       <Preview markdownText={markdownText} />
     </div>
@@ -44,16 +44,26 @@ function App() {
 
 function Editor(props) {
   return (
-    <textarea id="editor" value={props.markdownText} onChange={props.handleChange} rows="10" cols="50">
+    <div className="mb-10">
+      <p className='text-3xl text-white pt-7 pb-7'>Editor</p>
+      <textarea className="text-black border-2 border-black bg-gray-300"id="editor" value={props.markdownText} onChange={props.handleChange} rows="10" cols="50" >
       
-    </textarea>
+      </textarea>
+    </div>
+    
   );
 }
 
 function Preview(props){
   return (
-    <div id="preview" dangerouslySetInnerHTML={{__html: marked(props.markdownText)}}>
+
+    <div className="w-30 h-50">
+      <p className='text-3xl text-white pt-7 pb-7'>Preview</p>
+
+      <div id="preview"  dangerouslySetInnerHTML={{ __html: marked(props.markdownText) }} className='border-2 border-black w-13 pt-5 pb-5 bg-gray-300 text-black' >
+      </div>
     </div>
+    
   );
 }
 
